@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     private fun initView() {
         main_container.apply {
             val vManager = VirtualLayoutManager(this@MainActivity)
-            layoutManager = vManager
+            this.layoutManager = vManager
             multiDelegateAdapter = MultiDelegateAdapter(this@MainActivity, vManager).apply {
                 register(TextData::class.java, TextAdapter::class.java)
                 register(ImageData::class.java, ImgAdapter::class.java)
