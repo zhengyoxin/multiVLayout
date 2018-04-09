@@ -1,4 +1,4 @@
-#MultiVLayout
+# MultiVLayout
 
 一个简单容易创建多视图列表的Android开源库
 
@@ -8,7 +8,7 @@
 
 现在，创建了一种比较的直观和灵活的方式来轻松创建复杂的RecyclerView，使用MultiVLayout库，我们可以插入新的项目类型，而无需更改任何旧的适配器代码并使其更具可读性。
 
-##使用指南
+## 使用指南 ##
 在你的`build.gradle`:
 ```groovy
 dependencies {
@@ -16,13 +16,13 @@ dependencies {
 }
 ```
 
-##使用方法
-###Step 1：创建你的数据模型（Java Bean），例如：
+## 使用方法
+### Step 1：创建你的数据模型（Java Bean），例如：
 ```kotlin
 data class TextData(var text: String)
 ```
 
-###Step 2：创建一个类继承MultiAdapter<T, VH : RecyclerView.ViewHolder?>，例如：
+### Step 2：创建一个类继承MultiAdapter<T, VH : RecyclerView.ViewHolder?>，例如：
 ```kotlin
 class TextAdapter : MultiAdapter<TextData, RecyclerView.ViewHolder>() {
     override fun onCreateLayoutHelper(): LayoutHelper {
@@ -49,7 +49,8 @@ class TextAdapter : MultiAdapter<TextData, RecyclerView.ViewHolder>() {
     class TextVH(view: View) : RecyclerView.ViewHolder(view)
 }
 ```
-###Step 3：只需register您的数据类型和对应的Adapter并在您的Activity中设置RecyclerView和List <Object>，例如：
+### Step 3：只需register您的数据类型和对应的Adapter并在您的Activity中设置RecyclerView和List <Object>，例如：
+
 ```kotlin
 class MainActivity : AppCompatActivity() {
 
@@ -87,7 +88,8 @@ class MainActivity : AppCompatActivity() {
 
 }
 ```
-##MultiAdapter的使用
+
+## MultiAdapter的使用
 `onCreateViewHolder`和`onBindViewHolder `和Recycler.Adatper的接口作用一致
 `getItemCount`返回该数据模块的个数
 `onCreateLayoutHelper `确定该模块的布局
@@ -106,8 +108,8 @@ class MainActivity : AppCompatActivity() {
  * 所有除布局外的组件复用，VirtualLayout将用来管理大的模块布局组合，扩展了RecyclerView，使得同一RecyclerView内的组件可以复用，减少View的创建和销毁过程。
 * 不同的LayoutHelper的实际效果可以参考[vlayout](https://github.com/alibaba/vlayout)的demo
 
-##高级用法
-###一对多
+## 高级用法
+### 一对多
 ``` kotlin
 adapter.register(Data::class.java).to(
      DataType1MultiAdapter::class.java,
@@ -133,6 +135,6 @@ adapter.register(Data::class.java).to(
     }
 })
 ```
-##感谢
+## 感谢
 [MultiType](https://github.com/drakeet/MultiType)
 [vlayout](https://github.com/alibaba/vlayout)
