@@ -12,12 +12,13 @@
 在你的`build.gradle`:
 ```groovy
 dependencies {
-    implementation 'com.yoxin.multivlayout:multivlayout:1.0.0'
+    compile "com.github.zhengyoxin:MultiVLayout:0.1.0"
 }
 ```
 
 ## 使用方法
 ### Step 1：创建你的数据模型（Java Bean），例如：
+
 ```kotlin
 data class TextData(var text: String)
 ```
@@ -49,7 +50,8 @@ class TextAdapter : MultiAdapter<TextData, RecyclerView.ViewHolder>() {
     class TextVH(view: View) : RecyclerView.ViewHolder(view)
 }
 ```
-### Step 3：只需register您的数据类型和对应的Adapter并在您的Activity中设置RecyclerView和List <Object>，例如：
+
+###Step 3：只需register您的数据类型和对应的Adapter并在您的Activity中设置RecyclerView和List <Object>，例如：  
 
 ```kotlin
 class MainActivity : AppCompatActivity() {
@@ -108,6 +110,10 @@ class MainActivity : AppCompatActivity() {
  * 所有除布局外的组件复用，VirtualLayout将用来管理大的模块布局组合，扩展了RecyclerView，使得同一RecyclerView内的组件可以复用，减少View的创建和销毁过程。
 * 不同的LayoutHelper的实际效果可以参考[vlayout](https://github.com/alibaba/vlayout)的demo
 
+## 布局属性
+每一种layoutHelper都有自己的布局属性来控制布局样式，详情请参考[文档](https://github.com/alibaba/vlayout/blob/master/docs/ATTRIBUTES-ch.md)。
+
+
 ## 高级用法
 ### 一对多
 ``` kotlin
@@ -136,5 +142,5 @@ adapter.register(Data::class.java).to(
 })
 ```
 ## 感谢
-[MultiType](https://github.com/drakeet/MultiType)
+[MultiType](https://github.com/drakeet/MultiType)  
 [vlayout](https://github.com/alibaba/vlayout)
